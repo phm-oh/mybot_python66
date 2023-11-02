@@ -12,7 +12,7 @@ class Classbot :
 
         _,maxvalue,_,maxloc = cv.minMaxLoc(result)
 
-        acc = 0.9
+        acc = 0.95
             
         locations = np.where(result >= acc)  
         locations = list(zip(*locations[::-1])) 
