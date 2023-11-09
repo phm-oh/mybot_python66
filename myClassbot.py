@@ -3,7 +3,8 @@ import numpy as np
 
 class Classbot :
     def __init__(self,main_img,temp_img):
-        self.mainimg = cv.imread(main_img,cv.IMREAD_ANYCOLOR)
+        # self.mainimg = cv.imread(main_img,cv.IMREAD_ANYCOLOR)
+        self.mainimg = main_img
         self.temp_img = cv.imread(temp_img,cv.IMREAD_ANYCOLOR)
         
 
@@ -50,10 +51,10 @@ class Classbot :
                     cv.rectangle(self.mainimg,topleft,bottomright,color=(255,0,255),thickness=2 , lineType=cv.LINE_8) 
                     cv.drawMarker(self.mainimg,(centerX,centerY),color=(0,222,255),thickness=2,markerSize=50,markerType=cv.MARKER_DIAMOND)
         else:
-            print('ไม่เจอรูปภาพ')  
+            print('Picture Not Found')  
             
         if debug:
-            print(f'เจอรูปภาพทั้งหมด = {len(rex)}')    
+            print(f' deteched = {len(rex)}')    
             print(point)      
             cv.imshow('result',self.mainimg)
             cv.waitKey()
@@ -61,5 +62,5 @@ class Classbot :
         return point
             
 # แก้ตรงนี้
-mybot = Classbot('image/Screenshot3test.jpg','image/box.jpg')    
-mypoint = mybot.search(debug=True)  
+# mybot = Classbot('image/Screenshot3test.jpg','image/box.jpg')    
+# mypoint = mybot.search(debug=True)  

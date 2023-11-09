@@ -1,4 +1,5 @@
 import win32gui, win32ui, win32con
+# from win32 import win32gui
 import numpy as np
 from ctypes import windll
 class WindowCapture:
