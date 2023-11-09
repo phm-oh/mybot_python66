@@ -8,7 +8,7 @@ class Classbot :
         self.temp_img = cv.imread(temp_img,cv.IMREAD_ANYCOLOR)
         
 
-    def search(self,acc=0.9,debug=False)  :
+    def search(self,acc=0.9,debug=False,mytext="")  :
         result =   cv.matchTemplate(self.mainimg,self.temp_img,cv.TM_CCOEFF_NORMED)
 
         _,maxvalue,_,maxloc = cv.minMaxLoc(result)
@@ -48,6 +48,15 @@ class Classbot :
                 point.append((centerX,centerY))
                 
                 if debug:
+
+                    font = cv.FONT_ITALIC
+                    #ตำแหน่ง
+                    position = (topleft[0]+30,topleft[1]-5)
+                    fontsize = 0.5
+                    color = (255,0,255)
+                    cv.putText(self.mainimg,mytext,position,font,fontsize,color,thickness=2)
+
+
                     cv.rectangle(self.mainimg,topleft,bottomright,color=(255,0,255),thickness=2 , lineType=cv.LINE_8) 
                     cv.drawMarker(self.mainimg,(centerX,centerY),color=(0,222,255),thickness=2,markerSize=50,markerType=cv.MARKER_DIAMOND)
         else:

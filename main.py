@@ -12,4 +12,4 @@ screen = windows.screenshot()
 
 #start bot
 search = Classbot(screen,'image/target3.jpg')
-point = search.search(debug=True)
+point = search.search(debug=True,mytext="Icon")
