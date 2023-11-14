@@ -1,6 +1,9 @@
 import cv2 as cv
 import numpy as np
 
+
+
+
 class Classbot :
     def __init__(self,main_img,temp_img):
         # self.mainimg = cv.imread(main_img,cv.IMREAD_ANYCOLOR)
@@ -13,7 +16,7 @@ class Classbot :
 
         _,maxvalue,_,maxloc = cv.minMaxLoc(result)
 
-        # acc = 0.9
+        # acc = self.acc
             
         locations = np.where(result >= acc)  
         locations = list(zip(*locations[::-1])) 
@@ -66,8 +69,8 @@ class Classbot :
             print(f' deteched = {len(rex)}')    
             print(point)      
             cv.imshow('result',self.mainimg)
-            cv.waitKey()
-            cv.destroyAllWindows()
+            # cv.waitKey()
+            # cv.destroyAllWindows()
         return point
             
 # แก้ตรงนี้
