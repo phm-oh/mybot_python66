@@ -69,6 +69,8 @@ class Classbot :
             print(f' deteched = {len(rex)}')    
             print(point)      
             cv.imshow('result',self.mainimg)
+            # คอมเม้นไว้ตอนทำ real time
+            
             # cv.waitKey()
             # cv.destroyAllWindows()
         return point
