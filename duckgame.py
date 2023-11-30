@@ -21,26 +21,45 @@ windows = WindowCapture('Duck Hunt 🕹️ Play on CrazyGames - Profile 1 - Micr
 
 # ------------ทำการวน Loop-----------------
 looptime = time()
+
+myduckdata = {
+    'duck1':'image/duck1.jpg',
+    'duck2':'image/duck2.jpg',
+    'duck3':'image/duck3.jpg',
+    'duck4':'image/duck4.jpg',
+}
+   
+
 while True:
     screen = windows.screenshot()
-    search = Classbot(screen,'image/duck1.png')
-    duck1 = search.search(debug=True,mytext="Icon",acc=0.7 )
+    
+    for name,pathimg in myduckdata.items():
+        search = Classbot(screen,pathimg)
+        point = search.search(debug=True,mytext=name,acc=0.65 )
+        for myclick in point:
+            click(x=myclick[0],y=myclick[1])
+        
+    # screen = windows.screenshot()    
+    # search = Classbot(screen,'image/duck1.jpg')
+    # duck1 = search.search(debug=True,mytext="Icon",acc=0.7 )
     
     #ทำตอนต่อเกมแล้ว ติดตั้ง pyautoguiclick  py -m pip install autogui
-    for myclick in duck1:
-        click(x=myclick[0],y=myclick[1])
+    
         
         
         
-    screen = windows.screenshot()
-    search = Classbot(screen,'image/duck2.png')
-    duck2 = search.search(debug=True,mytext="Icon",acc=0.7 )
+    # screen = windows.screenshot()
+    # search = Classbot(screen,'image/duck2.jpg')
+    # duck2 = search.search(debug=True,mytext="Icon",acc=0.8 )
     
     #ทำตอนต่อเกมแล้ว ติดตั้ง pyautoguiclick  py -m pip install autogui
-    for myclick in duck2:
-        click(x=myclick[0],y=myclick[1])    
+    # for myclick in duck2:
+    #     click(x=myclick[0],y=myclick[1])    
         
     
     if cv.waitKey(1) == ord('q'):
         cv.destroyAllwindows()
         break
+    
+    
+# https://files.crazygames.com/duck-hunt/1/index.html 
